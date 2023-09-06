@@ -1,7 +1,12 @@
 # College Football Information
 
-https://api.collegefootballdata.com/api/docs/?url=/api-docs.json#/
+College Football Information will utilize the [College Football Data API](https://api.collegefootballdata.com/api/docs/?url=/api-docs.json#/)
+to provide current and relevant college football information.
 
-docker run --name cfbinfo -e POSTGRES_PASSWORD=scurtis -d -p 5432:5432 postgres
+## Technology Stack
 
+- Java - 17
+- Spring Boot - 3.1.3
+- Angular - 16.1.4
+- Postgresql - 
 
