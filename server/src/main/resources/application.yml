@@ -5,3 +5,12 @@ logging:
     root: INFO
     com:
       scurtis: INFO
+
+spring:
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database: postgresql
+
+
