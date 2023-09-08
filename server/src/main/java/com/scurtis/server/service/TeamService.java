@@ -26,4 +26,12 @@ public class TeamService {
                 .bodyToFlux(Team.class);
     }
 
+    public Flux<Team> getTeamsByConference(String conference) throws URISyntaxException {
+        return webClient.get()
+                .uri(new URI(cfbConfig.getBaseUrl() + "teams?conference=" + conference))
+                .header("Authorization", "Bearer " + cfbConfig.getApiKey())
+                .retrieve()
+                .bodyToFlux(Team.class);
+    }
+
 }
