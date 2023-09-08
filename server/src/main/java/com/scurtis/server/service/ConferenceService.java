@@ -1,6 +1,7 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
+import com.scurtis.server.model.Conference;
 import com.scurtis.server.model.Team;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -11,25 +12,17 @@ import reactor.core.publisher.Flux;
 
 @Service
 @RequiredArgsConstructor
-public class TeamService {
+public class ConferenceService {
 
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
 
-    public Flux<Team> getAllTeams() throws URISyntaxException {
+    public Flux<Conference> getAllConferences() throws URISyntaxException {
         return webClient.get()
-                .uri(new URI(cfbConfig.getBaseUrl() + "teams"))
+                .uri(new URI(cfbConfig.getBaseUrl() + "conferences"))
                 .header("Authorization", "Bearer " + cfbConfig.getApiKey())
                 .retrieve()
-                .bodyToFlux(Team.class);
-    }
-
-    public Flux<Team> getTeamsByConference(String conference) throws URISyntaxException {
-        return webClient.get()
-                .uri(new URI(cfbConfig.getBaseUrl() + "teams?conference=" + conference))
-                .header("Authorization", "Bearer " + cfbConfig.getApiKey())
-                .retrieve()
-                .bodyToFlux(Team.class);
+                .bodyToFlux(Conference.class);
     }
 
 }
