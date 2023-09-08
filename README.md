@@ -8,5 +8,5 @@ to provide current and relevant college football information.
 - Java - 17
 - Spring Boot - 3.1.3
 - Angular - 16.1.4
-- Postgresql - 
+- Postgresql
 
