@@ -1,0 +1,14 @@
+# application-test properties
+
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: postgres
+#    password: scurtis
+#
+# Run Postgresql in a docker container
+# docker run --name cfbinfo -e POSTGRES_PASSWORD=scurtis -d -p 5432:5432 postgres
+
+cfb:
+  base-url: https://test/
+  api-key: test-api-key
