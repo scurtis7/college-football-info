@@ -2,7 +2,7 @@
 
 @use '@angular/material' as mat;
 
-$my-primary: mat.define-palette(mat.$cyan-palette, 600);
+$my-primary: mat.define-palette(mat.$cyan-palette, 800);
 $my-accent: mat.define-palette(mat.$deep-purple-palette, A400, A200, A700);
 
 $my-theme: mat.define-dark-theme((
