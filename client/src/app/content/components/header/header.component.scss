@@ -6,7 +6,7 @@ $iconWidth: 56px;
   margin: 8px;
   min-width: $iconWidth;
 
-  @media (max-width: 720px) {
+  @media (max-width: 4080px) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,4 +19,9 @@ $iconWidth: 56px;
     line-height: $iconWidth;
     color: white;
   }
+}
+
+.menu-color {
+  //background-color: $tmd-dark-blue;
+  color: white;
 }

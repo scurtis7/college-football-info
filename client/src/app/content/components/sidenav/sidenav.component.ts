@@ -3,7 +3,7 @@ import { BreakpointObserver, BreakpointState } from "@angular/cdk/layout";
 import { Router } from "@angular/router";
 import { MatSidenav } from "@angular/material/sidenav";
 
-const SMALL_WIDTH_BREAKPOINT = 720;
+const SMALL_WIDTH_BREAKPOINT = 4080;
 
 @Component({
   selector: 'app-sidenav',

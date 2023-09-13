@@ -1,12 +1,11 @@
 <mat-sidenav-container class="app-sidenav-container">
-  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10"
+  <mat-sidenav #sidenav [mode]="isScreenSmall ? 'over' : 'side'"
                [opened]="!isScreenSmall"
-               [mode]="isScreenSmall ? 'over' : 'side'">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+               class="app-sidenav mat-elevation-z10">
+    <mat-toolbar color="primary" class="toolbar-menu">Menu</mat-toolbar>
     <mat-nav-list>
-      <mat-list-item>
-        <a matLine routerLink="">Dashboard</a>
-      </mat-list-item>
+      <mat-list-item routerLink="">Dashboard</mat-list-item>
+      <mat-list-item routerLink="">Teams</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
