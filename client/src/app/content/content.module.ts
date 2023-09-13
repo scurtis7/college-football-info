@@ -7,12 +7,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MaterialModule } from "../shared/material.module";
 import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
+import { TeamsComponent } from './components/teams/teams.component';
 
 const routes: Routes = [
   {
     path: '', component: ContentAppComponent,
     children: [
       { path: '', component: DashboardComponent },
+      { path: 'teams', component: TeamsComponent },
     ]
   },
   { path: '**', redirectTo: '' }
@@ -23,7 +25,8 @@ const routes: Routes = [
     ContentAppComponent,
     HeaderComponent,
     SidenavComponent,
-    DashboardComponent
+    DashboardComponent,
+    TeamsComponent
   ],
   imports: [
     CommonModule,
