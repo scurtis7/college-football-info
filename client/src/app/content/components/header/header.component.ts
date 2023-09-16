@@ -9,6 +9,9 @@ export class HeaderComponent implements OnInit {
 
   @Output() toggleSidenav = new EventEmitter<void>();
 
+  constructor() {
+  }
+
   ngOnInit(): void {
   }
 

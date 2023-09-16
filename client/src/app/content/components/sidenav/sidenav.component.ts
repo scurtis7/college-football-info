@@ -13,10 +13,10 @@ const SMALL_WIDTH_BREAKPOINT = 4080;
 export class SidenavComponent implements OnInit {
 
   public isScreenSmall: boolean | undefined;
-
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
-
   @ViewChild(MatSidenav) sidenav: MatSidenav | undefined;
+
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.breakpointObserver

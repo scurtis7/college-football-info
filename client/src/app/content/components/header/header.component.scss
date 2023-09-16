@@ -1,16 +1,8 @@
-$iconWidth: 56px;
+$iconWidth: 40px;
 
 .sidenav-toggle {
-  display: none;
   padding: 0;
-  margin: 8px;
-  min-width: $iconWidth;
-
-  @media (max-width: 4080px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  margin: 0;
 
   mat-icon {
     font-size: 30px;
@@ -22,6 +14,5 @@ $iconWidth: 56px;
 }
 
 .menu-color {
-  //background-color: $tmd-dark-blue;
   color: white;
 }
