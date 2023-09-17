@@ -2,7 +2,6 @@ package com.scurtis.server.controller;
 
 import com.scurtis.server.model.Team;
 import com.scurtis.server.service.TeamService;
-import java.net.URISyntaxException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +19,13 @@ public class TeamsController {
     private final TeamService teamService;
 
     @GetMapping
-    public Flux<Team> getTeams() throws URISyntaxException {
+    public Flux<Team> getTeams() {
         log.debug("getTeams()");
         return teamService.getAllTeams();
     }
 
     @GetMapping(path = "conference/{conference}")
-    public Flux<Team> getTeamsByConference(@PathVariable String conference) throws URISyntaxException {
+    public Flux<Team> getTeamsByConference(@PathVariable String conference) {
         log.debug("getTeamsByConference()");
         return teamService.getTeamsByConference(conference);
     }
