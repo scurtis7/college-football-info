@@ -48,7 +48,8 @@ CREATE TABLE Team (
     AlternateColor varchar(255),
     Logos varchar(510),
     Twitter varchar(255),
-    PRIMARY KEY (Id),
-    CONSTRAINT fk_venue FOREIGN KEY(Id) REFERENCES Venue(Id)
+    VenueId int REFERENCES Venue(Id),
+    PRIMARY KEY (Id)
 );
+
 
