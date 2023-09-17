@@ -1,9 +1,7 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
-import com.scurtis.server.model.Conference;
-import java.net.URI;
-import java.net.URISyntaxException;
+import com.scurtis.server.model.ConferenceDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -16,12 +14,12 @@ public class ConferenceService {
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
 
-    public Flux<Conference> getAllConferences() {
+    public Flux<ConferenceDto> getAllConferences() {
         return webClient.get()
             .uri(cfbConfig.getBaseUrl() + "conferences")
             .header("Authorization", "Bearer " + cfbConfig.getApiKey())
             .retrieve()
-            .bodyToFlux(Conference.class);
+            .bodyToFlux(ConferenceDto.class);
     }
 
 }

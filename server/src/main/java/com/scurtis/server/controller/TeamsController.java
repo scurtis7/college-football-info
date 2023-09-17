@@ -1,6 +1,6 @@
 package com.scurtis.server.controller;
 
-import com.scurtis.server.model.Team;
+import com.scurtis.server.model.TeamDto;
 import com.scurtis.server.service.TeamService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,13 +19,13 @@ public class TeamsController {
     private final TeamService teamService;
 
     @GetMapping
-    public Flux<Team> getTeams() {
+    public Flux<TeamDto> getTeams() {
         log.debug("getTeams()");
         return teamService.getAllTeams();
     }
 
     @GetMapping(path = "conference/{conference}")
-    public Flux<Team> getTeamsByConference(@PathVariable String conference) {
+    public Flux<TeamDto> getTeamsByConference(@PathVariable String conference) {
         log.debug("getTeamsByConference()");
         return teamService.getTeamsByConference(conference);
     }

@@ -3,7 +3,7 @@ package com.scurtis.server.model;
 import lombok.Data;
 
 @Data
-public class Conference {
+public class ConferenceDto {
 
     private int id;
     private String name;

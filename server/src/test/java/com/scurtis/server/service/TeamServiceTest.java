@@ -1,8 +1,8 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
-import com.scurtis.server.model.Location;
-import com.scurtis.server.model.Team;
+import com.scurtis.server.model.VenueDto;
+import com.scurtis.server.model.TeamDto;
 import java.util.Collections;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -48,8 +48,8 @@ class TeamServiceTest {
     @Test
     void testGetAllTeamsSuccess() {
         String baseUrl = "https://test/";
-        Team testTeam = getTeam();
-        Flux<Team> teamFlux = Flux.just(testTeam);
+        TeamDto testTeamDto = getTeam();
+        Flux<TeamDto> teamFlux = Flux.just(testTeamDto);
         when(cfbConfigMock.getBaseUrl()).thenReturn(baseUrl);
         when(cfbConfigMock.getApiKey()).thenReturn("api-key");
 
@@ -57,11 +57,11 @@ class TeamServiceTest {
         when(requestHeadersUriSpecMock.uri(baseUrl + "teams")).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.header("Authorization", "Bearer api-key")).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.retrieve()).thenReturn(responseSpecMock);
-        when(responseSpecMock.bodyToFlux(Team.class)).thenReturn(teamFlux);
+        when(responseSpecMock.bodyToFlux(TeamDto.class)).thenReturn(teamFlux);
 
-        Flux<Team> result = teamService.getAllTeams();
+        Flux<TeamDto> result = teamService.getAllTeams();
 
-        StepVerifier.create(result).expectNext(testTeam).expectComplete() // Verify the completion of the Flux
+        StepVerifier.create(result).expectNext(testTeamDto).expectComplete() // Verify the completion of the Flux
             .verify();
         verify(webClientMock).get();
         verify(cfbConfigMock).getBaseUrl();
@@ -73,8 +73,8 @@ class TeamServiceTest {
     void testGetTeamsByConferenceSuccess() {
         String CONFERENCE = "conference";
         String baseUrl = "https://test/";
-        Team testTeam = getTeam();
-        Flux<Team> teamFlux = Flux.just(testTeam);
+        TeamDto testTeamDto = getTeam();
+        Flux<TeamDto> teamFlux = Flux.just(testTeamDto);
         when(cfbConfigMock.getBaseUrl()).thenReturn(baseUrl);
         when(cfbConfigMock.getApiKey()).thenReturn("api-key");
 
@@ -82,11 +82,11 @@ class TeamServiceTest {
         when(requestHeadersUriSpecMock.uri(baseUrl + "teams?conference=" + CONFERENCE)).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.header("Authorization", "Bearer api-key")).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.retrieve()).thenReturn(responseSpecMock);
-        when(responseSpecMock.bodyToFlux(Team.class)).thenReturn(teamFlux);
+        when(responseSpecMock.bodyToFlux(TeamDto.class)).thenReturn(teamFlux);
 
-        Flux<Team> result = teamService.getTeamsByConference(CONFERENCE);
+        Flux<TeamDto> result = teamService.getTeamsByConference(CONFERENCE);
 
-        StepVerifier.create(result).expectNext(testTeam).expectComplete() // Verify the completion of the Flux
+        StepVerifier.create(result).expectNext(testTeamDto).expectComplete() // Verify the completion of the Flux
             .verify();
         verify(webClientMock).get();
         verify(cfbConfigMock).getBaseUrl();
@@ -94,42 +94,42 @@ class TeamServiceTest {
         verify(teamService).getTeamsByConference(CONFERENCE);
     }
 
-    private Team getTeam() {
-        Team team = new Team();
-        team.setId(1);
-        team.setSchool("School");
-        team.setMascot("Mascot");
-        team.setAbbreviation("Abbreviation");
-        team.setAlt_name_1("alt_name_1");
-        team.setAlt_name_2("alt_name_2");
-        team.setAlt_name_3("alt_name_3");
-        team.setClassification("Classification");
-        team.setConference("Conference");
-        team.setDivision("Division");
-        team.setAlt_color("alt_color");
-        team.setLogos(Collections.singletonList("Logo"));
-        team.setTwitter("Twitter");
-        team.setLocation(getLocation());
-        return team;
+    private TeamDto getTeam() {
+        TeamDto teamDto = new TeamDto();
+        teamDto.setId(1);
+        teamDto.setSchool("School");
+        teamDto.setMascot("Mascot");
+        teamDto.setAbbreviation("Abbreviation");
+        teamDto.setAlt_name_1("alt_name_1");
+        teamDto.setAlt_name_2("alt_name_2");
+        teamDto.setAlt_name_3("alt_name_3");
+        teamDto.setClassification("Classification");
+        teamDto.setConference("ConferenceDto");
+        teamDto.setDivision("Division");
+        teamDto.setAlt_color("alt_color");
+        teamDto.setLogos(Collections.singletonList("Logo"));
+        teamDto.setTwitter("Twitter");
+        teamDto.setVenueDto(getLocation());
+        return teamDto;
     }
 
-    private Location getLocation() {
-        Location location = new Location();
-        location.setVenue_id(1);
-        location.setName("Name");
-        location.setCity("City");
-        location.setState("State");
-        location.setZip("Zip");
-        location.setCountry_code("Country");
-        location.setTimezone("Timezone");
-        location.setLatitude(1);
-        location.setLongitude(1);
-        location.setElevation(1);
-        location.setCapacity(1);
-        location.setYear_constructed(1234);
-        location.setGrass(true);
-        location.setDome(false);
-        return location;
+    private VenueDto getLocation() {
+        VenueDto venueDto = new VenueDto();
+        venueDto.setVenue_id(1);
+        venueDto.setName("Name");
+        venueDto.setCity("City");
+        venueDto.setState("State");
+        venueDto.setZip("Zip");
+        venueDto.setCountry_code("Country");
+        venueDto.setTimezone("Timezone");
+        venueDto.setLatitude(1);
+        venueDto.setLongitude(1);
+        venueDto.setElevation(1);
+        venueDto.setCapacity(1);
+        venueDto.setYear_constructed(1234);
+        venueDto.setGrass(true);
+        venueDto.setDome(false);
+        return venueDto;
     }
 
 }

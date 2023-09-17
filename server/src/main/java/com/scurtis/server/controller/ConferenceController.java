@@ -1,6 +1,6 @@
 package com.scurtis.server.controller;
 
-import com.scurtis.server.model.Conference;
+import com.scurtis.server.model.ConferenceDto;
 import com.scurtis.server.service.ConferenceService;
 import java.net.URISyntaxException;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class ConferenceController {
     private final ConferenceService conferenceService;
 
     @GetMapping
-    public Flux<Conference> getAllConferences() throws URISyntaxException {
+    public Flux<ConferenceDto> getAllConferences() throws URISyntaxException {
         return conferenceService.getAllConferences();
     }
 

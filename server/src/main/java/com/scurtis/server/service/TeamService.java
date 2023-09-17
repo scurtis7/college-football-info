@@ -1,7 +1,7 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
-import com.scurtis.server.model.Team;
+import com.scurtis.server.model.TeamDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,22 +16,22 @@ public class TeamService {
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
 
-    public Flux<Team> getAllTeams() {
+    public Flux<TeamDto> getAllTeams() {
         log.debug("TeamService.getAllTeams()");
         return webClient.get()
             .uri(cfbConfig.getBaseUrl() + "teams")
             .header("Authorization", "Bearer " + cfbConfig.getApiKey())
             .retrieve()
-            .bodyToFlux(Team.class);
+            .bodyToFlux(TeamDto.class);
     }
 
-    public Flux<Team> getTeamsByConference(String conference) {
+    public Flux<TeamDto> getTeamsByConference(String conference) {
         log.debug("TeamService.getTeamsByConference() -> conference = {}", conference);
         return webClient.get()
             .uri(cfbConfig.getBaseUrl() + "teams?conference=" + conference)
             .header("Authorization", "Bearer " + cfbConfig.getApiKey())
             .retrieve()
-            .bodyToFlux(Team.class);
+            .bodyToFlux(TeamDto.class);
     }
 
 }

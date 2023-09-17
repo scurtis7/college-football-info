@@ -1,7 +1,7 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
-import com.scurtis.server.model.Conference;
+import com.scurtis.server.model.ConferenceDto;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,8 +46,8 @@ class ConferenceServiceTest {
     @Test
     void testGetAllConferencesSuccess() {
         String baseUrl = "https://test/";
-        Conference testConference = getConference();
-        Flux<Conference> conferenceFlux = Flux.just(testConference);
+        ConferenceDto testConferenceDto = getConference();
+        Flux<ConferenceDto> conferenceFlux = Flux.just(testConferenceDto);
         when(cfbConfigMock.getBaseUrl()).thenReturn(baseUrl);
         when(cfbConfigMock.getApiKey()).thenReturn("api-key");
 
@@ -55,12 +55,12 @@ class ConferenceServiceTest {
         when(requestHeadersUriSpecMock.uri(baseUrl + "conferences")).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.header("Authorization", "Bearer api-key")).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.retrieve()).thenReturn(responseSpecMock);
-        when(responseSpecMock.bodyToFlux(Conference.class)).thenReturn(conferenceFlux);
+        when(responseSpecMock.bodyToFlux(ConferenceDto.class)).thenReturn(conferenceFlux);
 
-        Flux<Conference> result = conferenceService.getAllConferences();
+        Flux<ConferenceDto> result = conferenceService.getAllConferences();
 
         StepVerifier.create(result)
-            .expectNext(testConference)
+            .expectNext(testConferenceDto)
             .expectComplete() // Verify the completion of the Flux
             .verify();
         verify(webClientMock).get();
@@ -69,14 +69,14 @@ class ConferenceServiceTest {
         verify(conferenceService).getAllConferences();
     }
 
-    private Conference getConference() {
-        Conference conference = new Conference();
-        conference.setId(1);
-        conference.setName("Name");
-        conference.setShort_name("Short Name");
-        conference.setAbbreviation("Abbreviation");
-        conference.setClassification("Classification");
-        return conference;
+    private ConferenceDto getConference() {
+        ConferenceDto conferenceDto = new ConferenceDto();
+        conferenceDto.setId(1);
+        conferenceDto.setName("Name");
+        conferenceDto.setShort_name("Short Name");
+        conferenceDto.setAbbreviation("Abbreviation");
+        conferenceDto.setClassification("Classification");
+        return conferenceDto;
     }
 
 }

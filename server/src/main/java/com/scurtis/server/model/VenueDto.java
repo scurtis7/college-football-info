@@ -3,7 +3,7 @@ package com.scurtis.server.model;
 import lombok.Data;
 
 @Data
-public class Location {
+public class VenueDto {
 
     private int venue_id;
     private String name;
@@ -14,7 +14,7 @@ public class Location {
     private String timezone;
     private double latitude;
     private double longitude;
-    private double elevation;
+    private String elevation;
     private int capacity;
     private int year_constructed;
     private boolean grass;
