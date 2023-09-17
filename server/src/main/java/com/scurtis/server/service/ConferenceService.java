@@ -2,7 +2,6 @@ package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
 import com.scurtis.server.model.Conference;
-import com.scurtis.server.model.Team;
 import java.net.URI;
 import java.net.URISyntaxException;
 import lombok.RequiredArgsConstructor;
@@ -17,12 +16,12 @@ public class ConferenceService {
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
 
-    public Flux<Conference> getAllConferences() throws URISyntaxException {
+    public Flux<Conference> getAllConferences() {
         return webClient.get()
-                .uri(new URI(cfbConfig.getBaseUrl() + "conferences"))
-                .header("Authorization", "Bearer " + cfbConfig.getApiKey())
-                .retrieve()
-                .bodyToFlux(Conference.class);
+            .uri(cfbConfig.getBaseUrl() + "conferences")
+            .header("Authorization", "Bearer " + cfbConfig.getApiKey())
+            .retrieve()
+            .bodyToFlux(Conference.class);
     }
 
 }

@@ -18,18 +18,18 @@ public class TeamService {
 
     public Flux<Team> getAllTeams() throws URISyntaxException {
         return webClient.get()
-                .uri(new URI(cfbConfig.getBaseUrl() + "teams"))
-                .header("Authorization", "Bearer " + cfbConfig.getApiKey())
-                .retrieve()
-                .bodyToFlux(Team.class);
+            .uri(new URI(cfbConfig.getBaseUrl() + "teams"))
+            .header("Authorization", "Bearer " + cfbConfig.getApiKey())
+            .retrieve()
+            .bodyToFlux(Team.class);
     }
 
     public Flux<Team> getTeamsByConference(String conference) throws URISyntaxException {
         return webClient.get()
-                .uri(new URI(cfbConfig.getBaseUrl() + "teams?conference=" + conference))
-                .header("Authorization", "Bearer " + cfbConfig.getApiKey())
-                .retrieve()
-                .bodyToFlux(Team.class);
+            .uri(new URI(cfbConfig.getBaseUrl() + "teams?conference=" + conference))
+            .header("Authorization", "Bearer " + cfbConfig.getApiKey())
+            .retrieve()
+            .bodyToFlux(Team.class);
     }
 
 }
