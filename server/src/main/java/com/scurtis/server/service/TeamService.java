@@ -16,17 +16,17 @@ public class TeamService {
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
 
-    public Flux<Team> getAllTeams() throws URISyntaxException {
+    public Flux<Team> getAllTeams() {
         return webClient.get()
-            .uri(new URI(cfbConfig.getBaseUrl() + "teams"))
+            .uri(cfbConfig.getBaseUrl() + "teams")
             .header("Authorization", "Bearer " + cfbConfig.getApiKey())
             .retrieve()
             .bodyToFlux(Team.class);
     }
 
-    public Flux<Team> getTeamsByConference(String conference) throws URISyntaxException {
+    public Flux<Team> getTeamsByConference(String conference) {
         return webClient.get()
-            .uri(new URI(cfbConfig.getBaseUrl() + "teams?conference=" + conference))
+            .uri(cfbConfig.getBaseUrl() + "teams?conference=" + conference)
             .header("Authorization", "Bearer " + cfbConfig.getApiKey())
             .retrieve()
             .bodyToFlux(Team.class);

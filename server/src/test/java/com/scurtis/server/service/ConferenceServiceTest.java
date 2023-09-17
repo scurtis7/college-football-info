@@ -20,6 +20,8 @@ import static org.mockito.Mockito.when;
 @ExtendWith(SpringExtension.class)
 class ConferenceServiceTest {
 
+    private ConferenceService conferenceService;
+
     @Mock
     private CfbConfig cfbConfigMock;
     @Mock
@@ -30,8 +32,6 @@ class ConferenceServiceTest {
     private WebClient.RequestHeadersSpec requestHeadersSpecMock;
     @Mock
     private WebClient.ResponseSpec responseSpecMock;
-
-    private ConferenceService conferenceService;
 
     @BeforeEach
     void setup() {
