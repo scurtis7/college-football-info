@@ -10,7 +10,7 @@ import lombok.Data;
 public class Team {
 
     @Id
-    private int id;
+    private Integer id;
     private String school;
     private String mascot;
     private String abbreviation;

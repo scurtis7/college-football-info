@@ -19,8 +19,13 @@ public class ConferenceController {
     private final ConferenceService conferenceService;
 
     @GetMapping
-    public Flux<ConferenceDto> getAllConferences() throws URISyntaxException {
+    public Flux<ConferenceDto> getAllConferences() {
         return conferenceService.getAllConferences();
+    }
+
+    @GetMapping(path = "save")
+    public void saveConferences() {
+        conferenceService.saveConferences();
     }
 
 }

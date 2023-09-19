@@ -9,7 +9,7 @@ import lombok.Data;
 public class Conference {
 
     @Id
-    private int id;
+    private Integer id;
     private String name;
     private String shortName;
     private String abbreviation;

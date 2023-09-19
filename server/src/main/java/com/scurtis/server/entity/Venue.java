@@ -9,19 +9,19 @@ import lombok.Data;
 public class Venue {
 
     @Id
-    private int id;
+    private Integer id;
     private String name;
     private String city;
     private String state;
     private String zip;
     private String countryCode;
     private String timezone;
-    private double latitude;
-    private double longitude;
+    private Double latitude;
+    private Double longitude;
     private String elevation;
-    private int capacity;
-    private int yearConstructed;
-    private boolean grass;
-    private boolean dome;
+    private Integer capacity;
+    private Integer yearConstructed;
+    private Boolean grass;
+    private Boolean dome;
 
 }
