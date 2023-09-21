@@ -30,4 +30,9 @@ public class TeamsController {
         return teamService.getTeamsByConference(conference);
     }
 
+    @GetMapping(path = "save")
+    public void saveTeams() {
+        teamService.saveTeams();
+    }
+
 }

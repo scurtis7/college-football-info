@@ -1,8 +1,9 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
-import com.scurtis.server.model.VenueDto;
+import com.scurtis.server.model.LocationDto;
 import com.scurtis.server.model.TeamDto;
+import com.scurtis.server.repository.TeamRepository;
 import java.util.Collections;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,6 +26,8 @@ class TeamServiceTest {
     private TeamService teamService;
 
     @Mock
+    private TeamRepository teamRepositoryMock;
+    @Mock
     private CfbConfig cfbConfigMock;
     @Mock
     private WebClient webClientMock;
@@ -37,7 +40,7 @@ class TeamServiceTest {
 
     @BeforeEach
     void setup() {
-        teamService = spy(new TeamService(cfbConfigMock, webClientMock));
+        teamService = spy(new TeamService(teamRepositoryMock, cfbConfigMock, webClientMock));
     }
 
     @AfterEach
@@ -109,27 +112,27 @@ class TeamServiceTest {
         teamDto.setAlt_color("alt_color");
         teamDto.setLogos(Collections.singletonList("Logo"));
         teamDto.setTwitter("Twitter");
-        teamDto.setVenueDto(getLocation());
+        teamDto.setLocationDto(getLocation());
         return teamDto;
     }
 
-    private VenueDto getLocation() {
-        VenueDto venueDto = new VenueDto();
-        venueDto.setVenue_id(1);
-        venueDto.setName("Name");
-        venueDto.setCity("City");
-        venueDto.setState("State");
-        venueDto.setZip("Zip");
-        venueDto.setCountry_code("Country");
-        venueDto.setTimezone("Timezone");
-        venueDto.setLatitude(1);
-        venueDto.setLongitude(1);
-        venueDto.setElevation(1);
-        venueDto.setCapacity(1);
-        venueDto.setYear_constructed(1234);
-        venueDto.setGrass(true);
-        venueDto.setDome(false);
-        return venueDto;
+    private LocationDto getLocation() {
+        LocationDto locationDto = new LocationDto();
+        locationDto.setVenue_id(1);
+        locationDto.setName("Name");
+        locationDto.setCity("City");
+        locationDto.setState("State");
+        locationDto.setZip("Zip");
+        locationDto.setCountry_code("Country");
+        locationDto.setTimezone("Timezone");
+        locationDto.setLatitude(1);
+        locationDto.setLongitude(1);
+        locationDto.setElevation(1);
+        locationDto.setCapacity(1);
+        locationDto.setYear_constructed(1234);
+        locationDto.setGrass(true);
+        locationDto.setDome(false);
+        return locationDto;
     }
 
 }

@@ -22,7 +22,7 @@ public class TeamDto {
     private List<String> logos;
     private String twitter;
     @JsonProperty("location")
-    private VenueDto venueDto;
+    private LocationDto locationDto;
 
 }
 
