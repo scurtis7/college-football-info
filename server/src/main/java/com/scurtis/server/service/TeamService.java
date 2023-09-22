@@ -2,9 +2,7 @@ package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
 import com.scurtis.server.entity.Team;
-import com.scurtis.server.entity.Venue;
 import com.scurtis.server.model.TeamDto;
-import com.scurtis.server.model.VenueDto;
 import com.scurtis.server.repository.TeamRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
