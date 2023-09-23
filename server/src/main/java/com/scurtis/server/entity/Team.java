@@ -1,12 +1,9 @@
 package com.scurtis.server.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 
 @Data
-@Entity
 public class Team {
 
     @Id
