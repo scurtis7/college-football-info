@@ -11,13 +11,13 @@ import reactor.core.publisher.Flux;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class GameStatsService {
+public class StatsService {
 
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
 
     public Flux<GameStatsDto> getGameStats(int year, String team, int week) {
-        log.debug("GameStatsService.getGameStats() -> year:{}, team:{}, week:{}", year, team, week);
+        log.debug("StatsService.getGameStats() -> year:{}, team:{}, week:{}", year, team, week);
         return webClient.get()
             .uri(cfbConfig.getBaseUrl() + "stats/game/advanced?year=" + year + "&team=" + team + "&week=" + week + "&excludeGarbageTime=true")
             .header("Authorization", "Bearer " + cfbConfig.getApiKey())

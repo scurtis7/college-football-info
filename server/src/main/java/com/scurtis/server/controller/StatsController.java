@@ -1,7 +1,7 @@
 package com.scurtis.server.controller;
 
 import com.scurtis.server.model.GameStatsDto;
-import com.scurtis.server.service.GameStatsService;
+import com.scurtis.server.service.StatsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +16,11 @@ import reactor.core.publisher.Flux;
 @RequestMapping(value = "stats")
 public class StatsController {
 
-    private final GameStatsService gameStatsService;
+    private final StatsService statsService;
 
     @GetMapping("game")
-    public Flux<GameStatsDto> getStatsByGame(@RequestParam int year, @RequestParam String team, @RequestParam int week) {
-        return gameStatsService.getGameStats(year, team, week);
+    public Flux<GameStatsDto> getGameStats(@RequestParam int year, @RequestParam String team, @RequestParam int week) {
+        return statsService.getGameStats(year, team, week);
     }
 
 }
