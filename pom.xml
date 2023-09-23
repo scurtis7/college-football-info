@@ -13,10 +13,6 @@
 	<version>0.0.1</version>
 	<name>college-football-info</name>
 	<description>College Football Information</description>
-
-	<properties>
-		<java.version>17</java.version>
-	</properties>
 	<packaging>pom</packaging>
 
     <modules>
