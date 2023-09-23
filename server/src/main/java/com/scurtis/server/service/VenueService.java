@@ -1,11 +1,9 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
-import com.scurtis.server.entity.Venue;
+import com.scurtis.server.converter.VenueConverter;
 import com.scurtis.server.model.VenueDto;
 import com.scurtis.server.repository.VenueRepository;
-import com.scurtis.server.util.VenueConverter;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

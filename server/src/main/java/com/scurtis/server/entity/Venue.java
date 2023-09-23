@@ -14,13 +14,13 @@ public class Venue implements Persistable<Integer> {
     private String city;
     private String state;
     private String zip;
-    private String countrycode;
+    private String countryCode;
     private String timezone;
     private Double latitude;
     private Double longitude;
     private String elevation;
     private Integer capacity;
-    private Integer yearconstructed;
+    private Integer yearConstructed;
     private Boolean grass;
     private Boolean dome;
 

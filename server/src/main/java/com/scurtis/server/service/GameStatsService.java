@@ -2,7 +2,6 @@ package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
 import com.scurtis.server.model.GameStatsDto;
-import com.scurtis.server.model.TeamDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

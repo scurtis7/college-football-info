@@ -1,6 +1,5 @@
 package com.scurtis.server.controller;
 
-import com.scurtis.server.model.LocationDto;
 import com.scurtis.server.model.VenueDto;
 import com.scurtis.server.service.VenueService;
 import lombok.RequiredArgsConstructor;

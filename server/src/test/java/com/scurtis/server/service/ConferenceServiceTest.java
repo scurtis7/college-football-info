@@ -1,7 +1,9 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
+import com.scurtis.server.converter.ConferenceConverter;
 import com.scurtis.server.model.ConferenceDto;
+import com.scurtis.server.repository.ConferenceRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,6 +25,10 @@ class ConferenceServiceTest {
     private ConferenceService conferenceService;
 
     @Mock
+    private ConferenceRepository conferenceRepositoryMock;
+    @Mock
+    private ConferenceConverter converterMock;
+    @Mock
     private CfbConfig cfbConfigMock;
     @Mock
     private WebClient webClientMock;
@@ -35,7 +41,7 @@ class ConferenceServiceTest {
 
     @BeforeEach
     void setup() {
-        conferenceService = spy(new ConferenceService(cfbConfigMock, webClientMock));
+        conferenceService = spy(new ConferenceService(conferenceRepositoryMock, converterMock, cfbConfigMock, webClientMock));
     }
 
     @AfterEach

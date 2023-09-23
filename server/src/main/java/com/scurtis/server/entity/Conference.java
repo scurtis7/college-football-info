@@ -1,7 +1,6 @@
 package com.scurtis.server.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -16,7 +15,7 @@ public class Conference implements Persistable<Integer> {
     @Id
     private Integer id;
     private String name;
-    private String shortname;
+    private String shortName;
     private String abbreviation;
     private String classification;
 

@@ -23,6 +23,7 @@ public class VenueDto {
     public static class Loc {
         private double x;
         private double y;
+
     }
 
 }

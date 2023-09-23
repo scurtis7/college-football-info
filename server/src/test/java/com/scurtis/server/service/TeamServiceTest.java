@@ -1,6 +1,7 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
+import com.scurtis.server.converter.TeamConverter;
 import com.scurtis.server.model.LocationDto;
 import com.scurtis.server.model.TeamDto;
 import com.scurtis.server.repository.TeamRepository;
@@ -28,6 +29,8 @@ class TeamServiceTest {
     @Mock
     private TeamRepository teamRepositoryMock;
     @Mock
+    private TeamConverter converterMock;
+    @Mock
     private CfbConfig cfbConfigMock;
     @Mock
     private WebClient webClientMock;
@@ -40,7 +43,7 @@ class TeamServiceTest {
 
     @BeforeEach
     void setup() {
-        teamService = spy(new TeamService(teamRepositoryMock, cfbConfigMock, webClientMock));
+        teamService = spy(new TeamService(teamRepositoryMock, converterMock, cfbConfigMock, webClientMock));
     }
 
     @AfterEach
@@ -103,9 +106,9 @@ class TeamServiceTest {
         teamDto.setSchool("School");
         teamDto.setMascot("Mascot");
         teamDto.setAbbreviation("Abbreviation");
-        teamDto.setAlt_name_1("alt_name_1");
-        teamDto.setAlt_name_2("alt_name_2");
-        teamDto.setAlt_name_3("alt_name_3");
+        teamDto.setAlt_name1("alt_name_1");
+        teamDto.setAlt_name2("alt_name_2");
+        teamDto.setAlt_name3("alt_name_3");
         teamDto.setClassification("Classification");
         teamDto.setConference("ConferenceDto");
         teamDto.setDivision("Division");
@@ -125,9 +128,9 @@ class TeamServiceTest {
         locationDto.setZip("Zip");
         locationDto.setCountry_code("Country");
         locationDto.setTimezone("Timezone");
-        locationDto.setLatitude(1);
-        locationDto.setLongitude(1);
-        locationDto.setElevation(1);
+        locationDto.setLatitude(1d);
+        locationDto.setLongitude(1d);
+        locationDto.setElevation("1.1");
         locationDto.setCapacity(1);
         locationDto.setYear_constructed(1234);
         locationDto.setGrass(true);

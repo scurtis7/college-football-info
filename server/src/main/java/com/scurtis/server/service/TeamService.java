@@ -1,14 +1,11 @@
 package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
-import com.scurtis.server.entity.Team;
+import com.scurtis.server.converter.TeamConverter;
 import com.scurtis.server.model.TeamDto;
 import com.scurtis.server.repository.TeamRepository;
-import com.scurtis.server.util.TeamConverter;
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -20,7 +17,6 @@ public class TeamService {
 
     private final TeamRepository teamRepository;
     private final TeamConverter converter;
-
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
 

@@ -2,7 +2,6 @@ package com.scurtis.server.controller;
 
 import com.scurtis.server.model.ConferenceDto;
 import com.scurtis.server.service.ConferenceService;
-import java.net.URISyntaxException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -13,17 +13,17 @@ public class Team implements Persistable<Integer> {
     private String school;
     private String mascot;
     private String abbreviation;
-    private String alternatename1;
-    private String alternatename2;
-    private String alternatename3;
+    private String alternateName1;
+    private String alternateName2;
+    private String alternateName3;
     private String classification;
     private String conference;
     private String division;
     private String color;
-    private String alternatecolor;
+    private String alternateColor;
     private String logos;
     private String twitter;
-    private Integer venueid;
+    private Integer venueId;
 
     @Transient
     private boolean newRecord = false;

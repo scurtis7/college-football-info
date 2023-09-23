@@ -34,6 +34,7 @@ public class GameStatsDto {
         private Downs passingDowns;
         private Plays rushingPlays;
         private Plays passingPlays;
+
     }
 
     @Getter
@@ -42,12 +43,14 @@ public class GameStatsDto {
         private double ppa;
         private double successRate;
         private double explosiveness;
+
     }
 
     @Getter
     @Setter
     public static class Plays extends Downs {
         private double totalPPA;
+
     }
 
 }

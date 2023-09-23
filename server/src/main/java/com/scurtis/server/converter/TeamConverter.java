@@ -1,4 +1,4 @@
-package com.scurtis.server.util;
+package com.scurtis.server.converter;
 
 import com.scurtis.server.entity.Team;
 import com.scurtis.server.model.LocationDto;
@@ -16,18 +16,18 @@ public class TeamConverter {
         dto.setSchool(entity.getSchool());
         dto.setMascot(entity.getMascot());
         dto.setAbbreviation(entity.getAbbreviation());
-        dto.setAlt_name1(entity.getAlternatename1());
-        dto.setAlt_name2(entity.getAlternatename2());
-        dto.setAlt_name3(entity.getAlternatename3());
+        dto.setAlt_name1(entity.getAlternateName1());
+        dto.setAlt_name2(entity.getAlternateName2());
+        dto.setAlt_name3(entity.getAlternateName3());
         dto.setClassification(entity.getClassification());
         dto.setConference(entity.getConference());
         dto.setDivision(entity.getDivision());
         dto.setColor(entity.getColor());
-        dto.setAlt_color(entity.getAlternatecolor());
+        dto.setAlt_color(entity.getAlternateColor());
         dto.setLogos(Arrays.stream(StringUtils.split(entity.getLogos(), ",")).toList());
         dto.setTwitter(entity.getTwitter());
         LocationDto locationDto = new LocationDto();
-        locationDto.setVenue_id(entity.getVenueid());
+        locationDto.setVenue_id(entity.getVenueId());
         dto.setLocationDto(locationDto);
         return dto;
     }
@@ -38,17 +38,17 @@ public class TeamConverter {
         team.setSchool(dto.getSchool());
         team.setMascot(dto.getMascot());
         team.setAbbreviation(dto.getAbbreviation());
-        team.setAlternatename1(dto.getAlt_name1());
-        team.setAlternatename2(dto.getAlt_name2());
-        team.setAlternatename3(dto.getAlt_name3());
+        team.setAlternateName1(dto.getAlt_name1());
+        team.setAlternateName2(dto.getAlt_name2());
+        team.setAlternateName3(dto.getAlt_name3());
         team.setClassification(dto.getClassification());
         team.setConference(dto.getConference());
         team.setDivision(dto.getDivision());
         team.setColor(dto.getColor());
-        team.setAlternatecolor(dto.getAlt_color());
+        team.setAlternateColor(dto.getAlt_color());
         team.setLogos(StringUtils.join(dto.getLogos(), ", "));
         team.setTwitter(dto.getTwitter());
-        team.setVenueid(dto.getLocationDto().getVenue_id());
+        team.setVenueId(dto.getLocationDto().getVenue_id());
         team.setNewRecord(isNew);
         return team;
     }

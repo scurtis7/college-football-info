@@ -1,8 +1,6 @@
 package com.scurtis.server.controller;
 
-import com.scurtis.server.model.ConferenceDto;
 import com.scurtis.server.model.GameStatsDto;
-import com.scurtis.server.service.ConferenceService;
 import com.scurtis.server.service.GameStatsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

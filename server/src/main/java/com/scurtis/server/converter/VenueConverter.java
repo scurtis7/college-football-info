@@ -1,4 +1,4 @@
-package com.scurtis.server.util;
+package com.scurtis.server.converter;
 
 import com.scurtis.server.entity.Venue;
 import com.scurtis.server.model.VenueDto;
@@ -14,7 +14,7 @@ public class VenueConverter {
         dto.setCity(entity.getCity());
         dto.setState(entity.getState());
         dto.setZip(entity.getZip());
-        dto.setCountry_code(entity.getCountrycode());
+        dto.setCountry_code(entity.getCountryCode());
         dto.setTimezone(entity.getTimezone());
         VenueDto.Loc loc = new VenueDto.Loc();
         loc.setX(entity.getLatitude());
@@ -22,7 +22,7 @@ public class VenueConverter {
         dto.setLocation(loc);
         dto.setElevation(entity.getElevation());
         dto.setCapacity(entity.getCapacity());
-        dto.setYear_constructed(entity.getYearconstructed());
+        dto.setYear_constructed(entity.getYearConstructed());
         dto.setGrass(entity.getGrass());
         dto.setDome(entity.getDome());
         return dto;
@@ -35,7 +35,7 @@ public class VenueConverter {
         venue.setCity(dto.getCity());
         venue.setState(dto.getState());
         venue.setZip(dto.getZip());
-        venue.setCountrycode(dto.getCountry_code());
+        venue.setCountryCode(dto.getCountry_code());
         venue.setTimezone(dto.getTimezone());
         if (dto.getLocation() != null) {
             venue.setLatitude(dto.getLocation().getX());
@@ -46,7 +46,7 @@ public class VenueConverter {
         }
         venue.setElevation(dto.getElevation());
         venue.setCapacity(dto.getCapacity());
-        venue.setYearconstructed(dto.getYear_constructed());
+        venue.setYearConstructed(dto.getYear_constructed());
         venue.setGrass(dto.isGrass());
         venue.setDome(dto.isDome());
         venue.setNewRecord(isNew);
