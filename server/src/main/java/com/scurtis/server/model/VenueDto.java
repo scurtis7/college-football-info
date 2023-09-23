@@ -1,8 +1,10 @@
 package com.scurtis.server.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class VenueDto {
 
     private int id;
@@ -19,11 +21,11 @@ public class VenueDto {
     private Loc location;
     private String timezone;
 
-    @Data
+    @Getter
+    @Setter
     public static class Loc {
         private double x;
         private double y;
-
     }
 
 }

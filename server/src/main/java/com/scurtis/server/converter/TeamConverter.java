@@ -1,7 +1,6 @@
 package com.scurtis.server.converter;
 
 import com.scurtis.server.entity.Team;
-import com.scurtis.server.model.LocationDto;
 import com.scurtis.server.model.TeamDto;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
@@ -26,9 +25,7 @@ public class TeamConverter {
         dto.setAlt_color(entity.getAlternateColor());
         dto.setLogos(Arrays.stream(StringUtils.split(entity.getLogos(), ",")).toList());
         dto.setTwitter(entity.getTwitter());
-        LocationDto locationDto = new LocationDto();
-        locationDto.setVenue_id(entity.getVenueId());
-        dto.setLocationDto(locationDto);
+        dto.getLocation().setVenue_id(entity.getVenueId());
         return dto;
     }
 
@@ -48,7 +45,7 @@ public class TeamConverter {
         team.setAlternateColor(dto.getAlt_color());
         team.setLogos(StringUtils.join(dto.getLogos(), ", "));
         team.setTwitter(dto.getTwitter());
-        team.setVenueId(dto.getLocationDto().getVenue_id());
+        team.setVenueId(dto.getLocation().getVenue_id());
         team.setNewRecord(isNew);
         return team;
     }
