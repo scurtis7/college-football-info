@@ -3,7 +3,8 @@
 College Football Information will utilize the [College Football Data API](https://api.collegefootballdata.com/api/docs/?url=/api-docs.json#/)
 to provide current and relevant college football information.
 
-This is a showcase application with a little bit of everything.  It's a Spring Boot and Angular application utilizing reactive streams.
+This is an application with a little bit of everything.  It's a Spring Boot, Angular application utilizing 
+reactive streams with Webflux and R2DBC database driver.
 
 ## Technology Stack
 
