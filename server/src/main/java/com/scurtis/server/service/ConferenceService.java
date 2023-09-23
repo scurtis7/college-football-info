@@ -29,7 +29,7 @@ public class ConferenceService {
     }
 
     public void saveConferences() {
-        conferenceRepository.saveAll(getAllConferences().map(converter::toEntity)).subscribe();
+        conferenceRepository.saveAll(getAllConferences().map(dto -> converter.toEntity(dto, true))).subscribe();
     }
 
 }

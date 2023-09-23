@@ -4,6 +4,7 @@ import com.scurtis.server.config.CfbConfig;
 import com.scurtis.server.entity.Team;
 import com.scurtis.server.model.TeamDto;
 import com.scurtis.server.repository.TeamRepository;
+import com.scurtis.server.util.TeamConverter;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import reactor.core.publisher.Flux;
 public class TeamService {
 
     private final TeamRepository teamRepository;
+    private final TeamConverter converter;
 
     private final CfbConfig cfbConfig;
     private final WebClient webClient;
@@ -41,33 +43,7 @@ public class TeamService {
     }
 
     public void saveTeams() {
-        List<TeamDto> teamDtos = getAllTeams().collectList().block();
-        if (teamDtos != null) {
-            List<Team> teams = teamDtos
-                .stream()
-                .map(this::convertDtoToEntity).toList();
-            teamRepository.saveAll(teams);
-        }
-    }
-
-    private Team convertDtoToEntity(TeamDto dto) {
-        Team team = new Team();
-        team.setId(dto.getId());
-        team.setSchool(dto.getSchool());
-        team.setMascot(dto.getMascot());
-        team.setAbbreviation(dto.getAbbreviation());
-        team.setAlternateName1(dto.getAlt_name1());
-        team.setAlternateName2(dto.getAlt_name2());
-        team.setAlternateName3(dto.getAlt_name3());
-        team.setClassification(dto.getClassification());
-        team.setConference(dto.getConference());
-        team.setDivision(dto.getDivision());
-        team.setColor(dto.getColor());
-        team.setAlternateColor(dto.getAlt_color());
-        team.setLogos(StringUtils.join(dto.getLogos(), ", "));
-        team.setTwitter(dto.getTwitter());
-        team.setVenueId(dto.getLocationDto().getVenue_id());
-        return team;
+        teamRepository.saveAll(getAllTeams().map(dto -> converter.toEntity(dto, true))).subscribe();
     }
 
 }
