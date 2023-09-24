@@ -46,14 +46,21 @@ class ConferenceServiceTest {
 
     @AfterEach
     void afterEach() {
+        verifyNoMoreInteractions(conferenceRepositoryMock);
+        verifyNoMoreInteractions(converterMock);
+        verifyNoMoreInteractions(cfbConfigMock);
+        verifyNoMoreInteractions(webClientMock);
+        verifyNoMoreInteractions(requestHeadersUriSpecMock);
+        verifyNoMoreInteractions(requestHeadersSpecMock);
+        verifyNoMoreInteractions(responseSpecMock);
         verifyNoMoreInteractions(conferenceService);
     }
 
     @Test
     void testGetAllConferencesSuccess() {
         String baseUrl = "https://test/";
-        ConferenceDto testConferenceDto = getConference();
-        Flux<ConferenceDto> conferenceFlux = Flux.just(testConferenceDto);
+        ConferenceDto testConferenceDto = getConferenceDto();
+        Flux<ConferenceDto> testConferenceDtoFlux = Flux.just(testConferenceDto);
         when(cfbConfigMock.getBaseUrl()).thenReturn(baseUrl);
         when(cfbConfigMock.getApiKey()).thenReturn("api-key");
 
@@ -61,7 +68,7 @@ class ConferenceServiceTest {
         when(requestHeadersUriSpecMock.uri(baseUrl + "conferences")).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.header("Authorization", "Bearer api-key")).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.retrieve()).thenReturn(responseSpecMock);
-        when(responseSpecMock.bodyToFlux(ConferenceDto.class)).thenReturn(conferenceFlux);
+        when(responseSpecMock.bodyToFlux(ConferenceDto.class)).thenReturn(testConferenceDtoFlux);
 
         Flux<ConferenceDto> result = conferenceService.getAllConferences();
 
@@ -71,11 +78,15 @@ class ConferenceServiceTest {
             .verify();
         verify(webClientMock).get();
         verify(cfbConfigMock).getBaseUrl();
+        verify(requestHeadersUriSpecMock).uri("https://test/conferences");
+        verify(requestHeadersSpecMock).header("Authorization", "Bearer api-key");
+        verify(requestHeadersSpecMock).retrieve();
+        verify(responseSpecMock).bodyToFlux(ConferenceDto.class);
         verify(cfbConfigMock).getApiKey();
         verify(conferenceService).getAllConferences();
     }
 
-    private ConferenceDto getConference() {
+    private ConferenceDto getConferenceDto() {
         ConferenceDto conferenceDto = new ConferenceDto();
         conferenceDto.setId(1);
         conferenceDto.setName("Name");

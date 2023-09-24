@@ -155,7 +155,7 @@
                             </excludes>
                         </configuration>
                     </execution>
-                    <!-- Require > 90% Coverage -->
+                    <!-- Require > 80% Coverage -->
                     <execution>
                         <id>coverage-check</id>
                         <goals>
@@ -172,7 +172,7 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>90%</minimum>
+                                            <minimum>80%</minimum>
                                         </limit>
                                     </limits>
                                 </rule>

@@ -2,7 +2,6 @@ package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
 import com.scurtis.server.converter.TeamConverter;
-import com.scurtis.server.model.LocationDto;
 import com.scurtis.server.model.TeamDto;
 import com.scurtis.server.repository.TeamRepository;
 import java.util.Collections;
@@ -115,27 +114,27 @@ class TeamServiceTest {
         teamDto.setAlt_color("alt_color");
         teamDto.setLogos(Collections.singletonList("Logo"));
         teamDto.setTwitter("Twitter");
-        teamDto.setLocationDto(getLocation());
+        teamDto.setLocation(getLocation());
         return teamDto;
     }
 
-    private LocationDto getLocation() {
-        LocationDto locationDto = new LocationDto();
-        locationDto.setVenue_id(1);
-        locationDto.setName("Name");
-        locationDto.setCity("City");
-        locationDto.setState("State");
-        locationDto.setZip("Zip");
-        locationDto.setCountry_code("Country");
-        locationDto.setTimezone("Timezone");
-        locationDto.setLatitude(1d);
-        locationDto.setLongitude(1d);
-        locationDto.setElevation("1.1");
-        locationDto.setCapacity(1);
-        locationDto.setYear_constructed(1234);
-        locationDto.setGrass(true);
-        locationDto.setDome(false);
-        return locationDto;
+    private TeamDto.Location getLocation() {
+        TeamDto.Location location = new TeamDto.Location();
+        location.setVenue_id(1);
+        location.setName("Name");
+        location.setCity("City");
+        location.setState("State");
+        location.setZip("Zip");
+        location.setCountry_code("Country");
+        location.setTimezone("Timezone");
+        location.setLatitude(1d);
+        location.setLongitude(1d);
+        location.setElevation("1.1");
+        location.setCapacity(1);
+        location.setYear_constructed(1234);
+        location.setGrass(true);
+        location.setDome(false);
+        return location;
     }
 
 }

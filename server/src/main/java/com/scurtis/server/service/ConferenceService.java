@@ -2,11 +2,13 @@ package com.scurtis.server.service;
 
 import com.scurtis.server.config.CfbConfig;
 import com.scurtis.server.converter.ConferenceConverter;
+import com.scurtis.server.entity.Conference;
 import com.scurtis.server.model.ConferenceDto;
 import com.scurtis.server.repository.ConferenceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.Disposable;
 import reactor.core.publisher.Flux;
 
 @Service
