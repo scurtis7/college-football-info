@@ -1,0 +1,11 @@
+<div>
+  <h1>Ratings</h1>
+</div>
+<div>
+  <mat-form-field appearance="outline" floatLabel="auto">
+    <mat-label>Select a Team</mat-label>
+    <mat-select (selectionChange)="selectChangeEvent($event);" [(ngModel)]="selectedTeam" disableRipple>
+      <mat-option *ngFor="let team of teams" [value]="team">{{team}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

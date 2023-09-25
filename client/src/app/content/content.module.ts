@@ -8,6 +8,7 @@ import { MaterialModule } from "../shared/material.module";
 import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { TeamsComponent } from './components/teams/teams.component';
+import { RatingsComponent } from './components/ratings/ratings.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
     children: [
       { path: '', component: DashboardComponent },
       { path: 'teams', component: TeamsComponent },
+      { path: 'ratings', component: RatingsComponent },
     ]
   },
   { path: '**', redirectTo: '' }
@@ -26,7 +28,8 @@ const routes: Routes = [
     HeaderComponent,
     SidenavComponent,
     DashboardComponent,
-    TeamsComponent
+    TeamsComponent,
+    RatingsComponent
   ],
   imports: [
     CommonModule,

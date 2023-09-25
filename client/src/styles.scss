@@ -5,6 +5,7 @@
 $my-primary: mat.define-palette(mat.$cyan-palette, 800);
 $my-accent: mat.define-palette(mat.$deep-purple-palette, A400, A200, A700);
 
+//$my-theme: mat.define-light-theme((
 $my-theme: mat.define-dark-theme((
   color: (
     primary: $my-primary,
