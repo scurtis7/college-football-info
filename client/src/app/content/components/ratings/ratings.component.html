@@ -3,9 +3,29 @@
 </div>
 <div>
   <mat-form-field appearance="outline" floatLabel="auto">
-    <mat-label>Select a Team</mat-label>
-    <mat-select (selectionChange)="selectChangeEvent($event);" [(ngModel)]="selectedTeam" disableRipple>
-      <mat-option *ngFor="let team of teams" [value]="team">{{team}}</mat-option>
+    <mat-label>Year</mat-label>
+    <mat-select (selectionChange)="selectYearEvent($event);" [(ngModel)]="selectedYear" disableRipple>
+      <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
+<!--<div>-->
+<!--  <mat-form-field appearance="outline" floatLabel="auto">-->
+<!--    <mat-label>Team</mat-label>-->
+<!--    <mat-select (selectionChange)="selectChangeEvent($event);" [(ngModel)]="selectedTeam" disableRipple>-->
+<!--      <mat-option *ngFor="let team of teams" [value]="team">{{team}}</mat-option>-->
+<!--    </mat-select>-->
+<!--  </mat-form-field>-->
+<!--</div>-->
+<mat-tab-group dynamicHeight animationDuration="0ms">
+  <mat-tab label="SP">
+    <div>
+      SP Table Goes Here
+    </div>
+  </mat-tab>
+  <mat-tab label="FPI">
+    <div>
+      FPI Table Goes Here
+    </div>
+  </mat-tab>
+</mat-tab-group>
