@@ -19,7 +19,7 @@ public class TeamsController {
     private final TeamService teamService;
 
     @GetMapping
-    public Flux<TeamDto> getTeams() {
+    public Flux<TeamDto> getAllTeams() {
         log.debug("getTeams()");
         return teamService.getAllTeams();
     }

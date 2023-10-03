@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./shared/material.module";
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 const routes: Routes = [
   { path: 'content', loadChildren: () => import('./content/content.module').then(m => m.ContentModule) },
@@ -22,6 +23,7 @@ const routes: Routes = [
     MaterialModule,
     FormsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
