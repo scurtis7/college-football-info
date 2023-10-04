@@ -20,8 +20,14 @@ public class TeamsController {
 
     @GetMapping
     public Flux<TeamDto> getAllTeams() {
-        log.debug("getTeams()");
+        log.debug("getAllTeams()");
         return teamService.getAllTeams();
+    }
+
+    @GetMapping(path = "fbs")
+    public Flux<TeamDto> getAllFbsTeams() {
+        log.debug("getAllFbsTeams()");
+        return teamService.getAllFbsTeams();
     }
 
     @GetMapping(path = "conference/{conference}")

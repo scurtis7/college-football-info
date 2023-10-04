@@ -10,12 +10,11 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getTeams(): Observable<Team[]> {
-    return this.http.get<Team[]>('teams', {
+  getFbsTeams(): Observable<Team[]> {
+    return this.http.get<Team[]>('teams/fbs', {
       headers: this.getHeaders()
     });
   }
-
 
   private getHeaders(): HttpHeaders {
     return new HttpHeaders({

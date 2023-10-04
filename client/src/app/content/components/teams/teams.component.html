@@ -1,3 +1,49 @@
-<mat-card>
+<div>
   <h1>Teams</h1>
-</mat-card>
+</div>
+<div>
+  <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by id">ID</th>
+      <td *matCellDef="let element" mat-cell>{{element.id}}</td>
+    </ng-container>
+
+    <!-- School Column -->
+    <ng-container matColumnDef="school">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by school">School</th>
+      <td *matCellDef="let element" mat-cell>{{element.school}}</td>
+    </ng-container>
+
+    <!-- Abbreviation Column -->
+    <ng-container matColumnDef="abbreviation">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by abbreviation">Abbreviation</th>
+      <td *matCellDef="let element" mat-cell>{{element.abbreviation}}</td>
+    </ng-container>
+
+    <!-- Classification Column -->
+    <ng-container matColumnDef="classification">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by classification">Classification</th>
+      <td *matCellDef="let element" mat-cell>{{element.classification}}</td>
+    </ng-container>
+
+    <!-- Conference Column -->
+    <ng-container matColumnDef="conference">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by conference">Conference</th>
+      <td *matCellDef="let element" mat-cell>{{element.conference}}</td>
+    </ng-container>
+
+    <!-- Division Column -->
+    <ng-container matColumnDef="division">
+      <th *matHeaderCellDef mat-header-cell mat-sort-header sortActionDescription="Sort by division">Division</th>
+      <td *matCellDef="let element" mat-cell>{{element.division}}</td>
+    </ng-container>
+
+    <tr *matHeaderRowDef="displayedColumns; sticky: true" mat-header-row></tr>
+    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+  </table>
+</div>
+<div class="spinner">
+  <mat-progress-spinner mode="indeterminate" *ngIf="isLoading"></mat-progress-spinner>
+</div>

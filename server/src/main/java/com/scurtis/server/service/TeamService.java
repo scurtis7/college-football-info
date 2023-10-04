@@ -29,6 +29,15 @@ public class TeamService {
             .bodyToFlux(TeamDto.class);
     }
 
+    public Flux<TeamDto> getAllFbsTeams() {
+        log.debug("TeamService.getAllFbsTeams()");
+        return webClient.get()
+            .uri(cfbConfig.getBaseUrl() + "teams/fbs")
+            .header("Authorization", "Bearer " + cfbConfig.getApiKey())
+            .retrieve()
+            .bodyToFlux(TeamDto.class);
+    }
+
     public Flux<TeamDto> getTeamsByConference(String conference) {
         log.debug("TeamService.getTeamsByConference() -> conference = {}", conference);
         return webClient.get()
